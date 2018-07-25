@@ -1,2 +1,14 @@
-<h1>Tops#index</h1>
-<p>Find me in app/views/tops/index.html.erb</p>
+<h1>HTML要素帳</h1>
+
+<p>
+  115個のHTML要素を単語帳で表示</br>
+  選択問題で理解度チェック
+</p>
+
+
+<% if user_signed_in? %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<% else %>
+    <%= link_to "サインアップ", new_user_registration_path %>
+    <%= link_to "ログイン", new_user_session_path %>
+<% end %>
