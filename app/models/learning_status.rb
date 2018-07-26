@@ -1,0 +1,2 @@
+class LearningStatus < ApplicationRecord
+end

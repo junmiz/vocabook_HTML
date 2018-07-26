@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @vocab_book.word %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @vocab_book.comment %>
+</p>
+
+<%= link_to 'Edit', edit_vocab_book_path(@vocab_book) %> |
+<%= link_to 'Back', vocab_books_path %>

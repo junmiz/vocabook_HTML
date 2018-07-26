@@ -1,0 +1,2 @@
+class LastLearning < ApplicationRecord
+end

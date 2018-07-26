@@ -1,0 +1,27 @@
+<%= form_with(model: vocab_book, local: true) do |form| %>
+  <% if vocab_book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vocab_book.errors.count, "error") %> prohibited this vocab_book from being saved:</h2>
+
+      <ul>
+      <% vocab_book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :word %>
+    <%= form.text_area :word %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

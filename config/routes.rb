@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :vocab_books
   #get 'homes/index'
   get 'home', to: 'homes#index'
 

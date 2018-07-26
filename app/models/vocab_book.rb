@@ -1,0 +1,2 @@
+class VocabBook < ApplicationRecord
+end
