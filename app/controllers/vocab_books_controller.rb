@@ -60,6 +60,11 @@ class VocabBooksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # POST /vocabook
+  def show_vcabook
+    # params[:id]
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
