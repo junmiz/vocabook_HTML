@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :vocab_books, format: false
-  get 'vocabook/:show_id(/:id)' => 'vocab_books#show_vocabook'
-  post 'vocabook/:status' => 'vocab_books#update_status'
+  get 'vocabook/show/:show_id(/:id)', to: 'vocabook#show'
+  put 'vocabook/update/:status/:id', to: 'vocabook#update', as: 'vocabook'
   
+  resources :vocab_books, format: false
 
   get 'home', to: 'homes#index'
 
