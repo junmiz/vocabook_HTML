@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_26_014720) do
+ActiveRecord::Schema.define(version: 2018_07_27_082445) do
 
   create_table "cohice_question_statuses", force: :cascade do |t|
     t.integer "user_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2018_07_26_014720) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status"
   end
 
 end

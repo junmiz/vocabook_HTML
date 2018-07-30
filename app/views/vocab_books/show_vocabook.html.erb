@@ -1,0 +1,16 @@
+<p>
+  <strong>Word:</strong>
+  <%= @vocab_book.word %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @vocab_book.comment %>
+</p>
+
+<%= @vocab_book.status %>
+
+<%= link_to '習得', controller: "vocab_books", action: "update_status", status: "1", :method => :post %>
+<%= link_to '後で復習', controller: "vocab_books", action: "update_status", status: "2", method: :post %>
+
+<%= link_to 'HOMEへ戻る', home_path %>
