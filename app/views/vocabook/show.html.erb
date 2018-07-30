@@ -1,12 +1,12 @@
-<p>
-  <strong>Word:</strong>
-  <%= @vocab_book.word %>
-</p>
+<%= stylesheet_link_tag 'vocabook_panel' %>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @vocab_book.comment %>
-</p>
+<div class="flip-boards">
+　<div class="board left">
+　　<div class="front"><h2><%= @vocab_book.word %></h2></div>
+　　<div class="flipped"><h3><%= @vocab_book.comment %></h3></div>
+　</div>
+</div>
+
 
 <%= link_to '習得', vocabook_path(1, @vocab_book.id), method: :put %>
 <%= link_to '後で復習', vocabook_path(2, @vocab_book.id), method: :put %>
