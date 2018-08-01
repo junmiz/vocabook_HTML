@@ -1,5 +1,11 @@
 <%= stylesheet_link_tag 'vocabook_panel' %>
 
+<p>習得件数：<%= @learn_cnt %>/<%= @vocabook_total_cnt %>件</p>
+<p>習得率：<%= number_to_percentage @learn_cnt.to_f/@vocabook_total_cnt.to_f * 100, precision: 0 %></p>
+
+<%= link_to_if !(@vocab_book_config.filter == 0), 'すべて', vocabook_config_path(0), method: :put %>
+<%= link_to_if !(@vocab_book_config.filter == 1), '未習得のみ', vocabook_config_path(1), method: :put %>
+
 <div class="flip-boards">
 　<div class="board left">
 　　<div class="front"><h2><%= @vocab_book.word %></h2></div>
