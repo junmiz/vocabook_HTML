@@ -60,20 +60,6 @@
     margin-top:80px;
     font-size: 1.4em;
 }
-.flip-boards .board.top:hover
-{
-    -webkit-transform: rotateX( 180deg );
-    -moz-transform: rotateX( 180deg );
-    -ms-transform: rotateX( 180deg );
-    transform: rotateX( 180deg );
-}
-.flip-boards .board.top .flipped
-{
-    -webkit-transform: rotateX( 180deg );
-    -moz-transform: rotateX( 180deg );
-    -ms-transform: rotateX( 180deg );
-    transform: rotateX( 180deg );
-}
 .flip-boards .board.left:hover
 {
     -webkit-transform: rotateY( 180deg );

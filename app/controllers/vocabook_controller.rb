@@ -20,7 +20,7 @@ class VocabookController < ApplicationController
       else
         @vocab_book = VocabBook.find(@last_learning.vocab_book_id)
       end
-    elsif params[:show_id] == "next"    # 次の単語s
+    elsif params[:show_id] == "next"    # 次の単語
       # 現在表示中の単語帳の次を取得
       @vocab_book = VocabBook.where('id > ?', params[:id]).first
       if @vocab_book.nil?   # 取得できない→最後の単語帳終了
@@ -29,6 +29,7 @@ class VocabookController < ApplicationController
       end
     end
 
+    first_id = @vocab_book.id
     if @vocab_book_config.filter == 1  # 未習得のみ
       loop{
         set_learning_status
@@ -43,7 +44,12 @@ class VocabookController < ApplicationController
         # 次の単語帳を取得
         @vocab_book = VocabBook.where('id > ?', @vocab_book.id).first
         if @vocab_book.nil?
-          # ★最後のidに達したら、全て習得済みのメッセージを表示   したいが、仮で先頭を返す
+          # 最後のid→先頭id
+          @vocab_book = VocabBook.first
+        end
+        
+        if @vocab_book.id == first_id   # 最初にチェックしたidに戻った  
+          # ★すべて習得済みのメッセージを表示したいが、仮で先頭を返す
           @vocab_book = VocabBook.first
           break
         end
