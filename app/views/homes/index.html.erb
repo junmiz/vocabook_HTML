@@ -6,9 +6,12 @@
 </ul>
 <h2>選択問題</h2>
 <ul>
-  <li>ランダム問題10問スタート</li>
-  <li>ランダム問題20問スタート</li>
-  <li>ランダム問題50問スタート</li>
-  <li>全問スタート</li>
-  <li>間違えた問題のみスタート</li>
+  <li><%= link_to 'ランダム問題10問スタート', problems_start_path(10), method: :get %></li>
+  <li><%= link_to 'ランダム問題20問スタート', problems_start_path(20), method: :get %></li>
+  <li><%= link_to 'ランダム問題50問スタート', problems_start_path(50), method: :get %></li>
+  <li><%= link_to '全問スタート', problems_start_path(0), method: :get %></li>
+  <% problem_cnt = ChoiceQuestionStatus.where(user_id: current_user.id).where(status: 2).count %>
+  <% if !(problem_cnt.nil?) && problem_cnt >= 1 %>
+    <li><%= link_to '間違えた問題のみスタート', problems_start_path(-1), method: :get %></li>
+  <% end %>
 </ul>

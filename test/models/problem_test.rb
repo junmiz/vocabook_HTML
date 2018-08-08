@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CohiceQuestionStatusTest < ActiveSupport::TestCase
+class ProblemTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

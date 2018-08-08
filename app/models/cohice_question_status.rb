@@ -1,2 +1,0 @@
-class CohiceQuestionStatus < ApplicationRecord
-end

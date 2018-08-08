@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_31_004622) do
+ActiveRecord::Schema.define(version: 2018_08_07_002239) do
+
+  create_table "choice_question_statuses", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "vocab_book_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cohice_question_statuses", force: :cascade do |t|
     t.integer "user_id"
@@ -31,6 +39,14 @@ ActiveRecord::Schema.define(version: 2018_07_31_004622) do
     t.integer "user_id"
     t.integer "vocab_book_id"
     t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "problems", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "vocab_book_id"
+    t.integer "judgment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
