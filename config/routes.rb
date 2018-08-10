@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'problems/show/id', to: 'problems#show', as: 'problems'
+  get 'problems/show/:id', to: 'problems#show', as: 'problems'
   get 'problems/start/:cnt', to: 'problems#start', as: 'problems_start'
-  put 'problems/answer/:id', to: 'problems#answer', as: 'problems_answer'
+  put 'problems/answer/:prob_id/:ans_id', to: 'problems#answer', as: 'problems_answer'
   
   get 'vocabook/show/:show_id(/:id)', to: 'vocabook#show'
   put 'vocabook/update/:status/:id', to: 'vocabook#update', as: 'vocabook'

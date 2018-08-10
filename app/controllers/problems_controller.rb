@@ -62,6 +62,11 @@ class ProblemsController < ApplicationController
   end
 
   def answer
+    # 正解/不正解の判定（problem.単語id vs 選択した単語id）
+    params[:prob_id]
+    params[:ans_id]
+    
+    # 正解/不正解によりanserページのパラメータを切り替え
   end
 
   private

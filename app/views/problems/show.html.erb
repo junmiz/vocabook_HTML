@@ -1,11 +1,12 @@
-<h1>Problems#show</h1>
-<p>Find me in app/views/problems/show.html.erb</p>
-
-正解単語id
-<P><%= @problem.vocab_book_id %></P>
-
+<h2>問題</h2>
 <p><%= @vocab_book.comment %></p>
 
+<h2>選択肢</h2>
 <% @vocab_books.each do |vocab| %>
-  <p><%= vocab.word %> : <%= vocab.id %></p>
+  <%= link_to vocab.word, problems_answer_path(@problem, vocab) %>
+  <%= vocab.id %>
 <% end %>
+
+
+<p>正解単語id</p>
+<P><%= @problem.vocab_book_id %></P>
