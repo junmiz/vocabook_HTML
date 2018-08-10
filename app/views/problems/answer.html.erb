@@ -1,2 +1,26 @@
-<h1>Problems#answer</h1>
-<p>Find me in app/views/problems/answer.html.erb</p>
+<% if @problem.judgment == 0 %>
+  <p>正解</p>
+<% else %>
+  <p>不正解</p>
+<% end %>
+
+<P>単語</P>
+<p><%= @prob_vocabook.word %></p>
+
+<p>解説</p>
+<p><%= @prob_vocabook.comment %></p>
+
+<% if @next_problem.nil? %>
+  <%= link_to '結果を見る', problems_url(@next_problem) %>
+<% else %>
+  <%= link_to '次の問題へ', problems_url(@next_problem) %>
+<% end %>
+
+<% if @problem.judgment == 1 %>
+  </hr>
+  <P>あなたの選択した単語</P>
+  <p><%= @ans_vocabook.word %></p>
+  
+  <p>解説</p>
+  <p><%= @ans_vocabook.comment %></p>
+<% end %>

@@ -54,19 +54,44 @@ class ProblemsController < ApplicationController
       problem = Problem.new(user_id: current_user.id, vocab_book_id: vocab_book.id)
       if problem.save
       else
-         puts "★★★error:problem.save"
+        puts "★★★error:problem.save"
       end
     end
     
-    redirect_to problems_url(id: Problem.first.id)
+    redirect_to problems_url(id: current_user.problems.first)
   end
 
   def answer
     # 正解/不正解の判定（problem.単語id vs 選択した単語id）
-    params[:prob_id]
-    params[:ans_id]
+    @problem = Problem.find(params[:prob_id])
+    @prob_vocabook = VocabBook.find(@problem.vocab_book_id)
     
-    # 正解/不正解によりanserページのパラメータを切り替え
+    @ans_vocabook = VocabBook.find(params[:ans_id])
+    
+    # 今回試験結果の保存
+    if @prob_vocabook.id == @ans_vocabook.id
+      # 正解
+      @problem.judgment = 0
+    else
+      # 不正解
+      @problem.judgment = 1
+    end
+    
+    if @problem.save
+    else
+      puts "★★★error:problem.save"
+    end
+    
+    # 全試験結果の保存
+    choice_question_status = ChoiceQuestionStatus.find_or_create_by(user_id: current_user, vocab_book_id: @prob_vocabook)
+    choice_question_status.status = @problem.judgment
+    if choice_question_status.save
+    else
+      puts "★★★error:choice_question_status.save"
+    end
+    
+    # 次問題id取得
+    @next_problem = Problem.where('id > ?', params[:prob_id]).first
   end
 
   private
