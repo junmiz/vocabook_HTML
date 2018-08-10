@@ -1,2 +1,11 @@
 <h1>Problems#show</h1>
 <p>Find me in app/views/problems/show.html.erb</p>
+
+正解単語id
+<P><%= @problem.vocab_book_id %></P>
+
+<p><%= @vocab_book.comment %></p>
+
+<% @vocab_books.each do |vocab| %>
+  <p><%= vocab.word %> : <%= vocab.id %></p>
+<% end %>
