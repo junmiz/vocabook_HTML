@@ -7,16 +7,20 @@ class ProblemsController < ApplicationController
     
     # 不正解の単語を3つ取得
     array = Array.new(4)
-    cnt = 0
     loop{
       @vocab_books = VocabBook.order("RANDOM()").limit(3)
       
+      cnt = 0
       flg = false
       @vocab_books.each do |v|
         array[cnt] = v.id
         cnt += 1
         if v.id == @vocab_book.id
           flg = true
+        else
+          puts '★★★'
+          puts v.id
+          puts @vocab_book.id
         end
       end
       if !flg 
@@ -27,6 +31,10 @@ class ProblemsController < ApplicationController
     array = array.shuffle
 
     @vocab_books = VocabBook.find(array)
+    
+    # 何問目＆問題数取得
+    @prob_cnt = current_user.problems.count
+    @prob_num = current_user.problems.where('id <= ?', params[:id]).count
   end
 
   # 試験問題の初期化
@@ -91,7 +99,13 @@ class ProblemsController < ApplicationController
     end
     
     # 次問題id取得
-    @next_problem = Problem.where('id > ?', params[:prob_id]).first
+    @next_problem = current_user.problems.where('id > ?', params[:prob_id]).first
+  end
+  
+  def result
+    # 正解率取得
+    @prob_cnt = current_user.problems.count
+    @corr_num = current_user.problems.where('judgment = ?', 0).count
   end
 
   private

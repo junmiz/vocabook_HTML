@@ -11,13 +11,13 @@
 <p><%= @prob_vocabook.comment %></p>
 
 <% if @next_problem.nil? %>
-  <%= link_to '結果を見る', problems_url(@next_problem) %>
+  <%= link_to '結果を見る', problems_result_url %>
 <% else %>
   <%= link_to '次の問題へ', problems_url(@next_problem) %>
 <% end %>
 
 <% if @problem.judgment == 1 %>
-  </hr>
+  <hr>
   <P>あなたの選択した単語</P>
   <p><%= @ans_vocabook.word %></p>
   

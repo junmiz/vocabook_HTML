@@ -1,0 +1,5 @@
+<h1>あなたの正解率</h1>
+<p><%= number_to_percentage @corr_num.to_f/@prob_cnt.to_f * 100, precision: 0 %></p>
+
+<%= link_to 'もう一度挑戦', problems_result_url %>
+<%= link_to 'HOMEへ戻る', home_path %>
