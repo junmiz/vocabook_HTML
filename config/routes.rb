@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'problems/show/:id', to: 'problems#show', as: 'problems'
-  get 'problems/start/:cnt', to: 'problems#start', as: 'problems_start'
-  get 'problems/answer/:prob_id/:ans_id', to: 'problems#answer', as: 'problems_answer'
-  get 'problems/result', to: 'problems#result', as: 'problems_result'
+  get 'problems/start/:typ', to: 'problems#start', as: 'problems_start'
+  get 'problems/show/:typ/:id', to: 'problems#show', as: 'problems'
+  get 'problems/answer/:typ/:prob_id/:ans_id', to: 'problems#answer', as: 'problems_answer'
+  get 'problems/result/:typ', to: 'problems#result', as: 'problems_result'
   
   get 'vocabook/show/:show_id(/:id)', to: 'vocabook#show'
   put 'vocabook/update/:status/:id', to: 'vocabook#update', as: 'vocabook'

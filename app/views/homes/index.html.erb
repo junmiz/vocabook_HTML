@@ -10,7 +10,7 @@
   <li><%= link_to 'ランダム問題20問スタート', problems_start_path(20), method: :get %></li>
   <li><%= link_to 'ランダム問題50問スタート', problems_start_path(50), method: :get %></li>
   <li><%= link_to '全問スタート', problems_start_path(0), method: :get %></li>
-  <% problem_cnt = ChoiceQuestionStatus.where(user_id: current_user.id).where(status: 2).count %>
+  <% problem_cnt = ChoiceQuestionStatus.where(user_id: current_user).where(status: 1).count %>
   <% if !(problem_cnt.nil?) && problem_cnt >= 1 %>
     <li><%= link_to '間違えた問題のみスタート', problems_start_path(-1), method: :get %></li>
   <% end %>

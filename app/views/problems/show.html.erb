@@ -3,10 +3,10 @@
 
 <h2>選択肢</h2>
 <% @vocab_books.each do |vocab| %>
-  <%= link_to vocab.word, problems_answer_path(@problem, vocab) %>
+  <%= link_to vocab.word, problems_answer_path(@prob_typ, @problem, vocab) %>
   <%= vocab.id %>
 <% end %>
 
 
-<p>正解単語id</p>
+<p>★正解単語id★</p>
 <P><%= @problem.vocab_book_id %></P>

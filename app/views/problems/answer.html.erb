@@ -11,9 +11,9 @@
 <p><%= @prob_vocabook.comment %></p>
 
 <% if @next_problem.nil? %>
-  <%= link_to '結果を見る', problems_result_url %>
+  <%= link_to '結果を見る', problems_result_url(@prob_typ) %>
 <% else %>
-  <%= link_to '次の問題へ', problems_url(@next_problem) %>
+  <%= link_to '次の問題へ', problems_url(@prob_typ, @next_problem) %>
 <% end %>
 
 <% if @problem.judgment == 1 %>
